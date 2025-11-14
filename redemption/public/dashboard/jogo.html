@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/jogo.css">
+</head>
+<body>
+
+    <div class="container_tempo">
+        <div class="tempo">
+            <span>millisegundos</span><br>
+            <div id="num">100</div><br>
+            <div id="recomecar"></div><br>
+        </div>
+    </div>
+    
+
+    <div class="container">
+        <div id= 'testeId' class="container_alvo">
+            <div id="alvo" onclick="" style=" width: none; height: none; background-color: none; 
+                border-radius: none; position: relative; left: none; top: none;">  
+            </div><br>
+        </div>
+    </div><br>
+
+    <button onclick="delayInicio()">Iniciar</button><br>
+
+    <div id="teste"></div><br>
+
+</body>
+</html>
+<script>
+
+    var max = 14000
+    var min = 3000
+
+    var left = 600
+    var minleft = 600
+
+    var topo = 200
+    var mintopo = 200
+
+    var horizontal1 = Math.floor(Math.random() * (left))
+    var horizontal2 = Math.floor(Math.random() * (minleft))
+    var horizontal = horizontal1 - horizontal2
+
+    var vertical1 = Math.floor(Math.random() * (topo))
+    var vertical2 = Math.floor(Math.random() * (mintopo))
+    var vertical = vertical1 - vertical2
+
+    var sorteado = Math.floor(Math.random() * (max - min) + min)
+    var segundos = parseInt(num.innerHTML)
+
+    console.log(sorteado)
+
+    function delayInicio (){
+        contador()
+        setInterval(()=>{
+            tiro()
+        }, 10) // sorteado
+    }
+
+    function contador(){
+        setInterval(() => {
+              cronometro()
+        }, 10)
+    }
+
+    function cronometro(){
+        
+        if (segundos < 400){
+            segundos ++
+            num.innerHTML = segundos
+        }
+        else{
+            num.innerHTML = `Muito lerdo`
+        }
+        
+    }
+
+    function tiro(){
+        alvo.innerHTML = `<div id="alvo" style=" width: 45px; height: 45px; 
+        background-color: blue; border-radius: 50px; 
+        position: relative; display: flex; left: ${horizontal}px; top: ${vertical}px;" 
+        onclick="atirar()" ></div>`
+    }
+
+    function atirar(){
+        tempo = segundos
+        teste.innerHTML = tempo
+        num.innerHTML = `<div id="num">0</div><br>`
+        testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
+        
+    }
+
+
+</script>

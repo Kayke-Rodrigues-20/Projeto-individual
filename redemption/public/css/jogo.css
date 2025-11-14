@@ -1,0 +1,30 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/*  cronometro */
+
+.container_tempo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+}
+
+/* campo-alvo */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_alvo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: burlywood;
+    width: 1200px;
+    height: 400px;
+}

@@ -5,6 +5,16 @@
   src: url('../fonts/Rye/Rye-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'oeste2';
+  src: url('../fonts/Rye/Smokum/Smokum-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'oeste3';
+  src: url('../fonts/Rye/Stint_Ultra_Condensed/StintUltraCondensed-Regular.ttf');
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -39,11 +49,17 @@ body {
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  font-family: 'oeste3', Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 900;
+  color: rgb(253, 70, 14);
 }
 
 .agora {
-  font-weight: 800;
+  font-family: 'oeste3', Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 900;
+  color: rgb(253, 70, 14);
 }
 
 .navbar {
@@ -56,9 +72,10 @@ body {
 }
 
 .titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
+  font-family: 'oeste2', Helvetica, sans-serif;
+  font-size: 65px;
+  font-weight: 800;
+  color: rgb(155, 105, 89);
 }
 
 .header h1 {
@@ -160,15 +177,13 @@ body {
   font-family: 'oeste1', Helvetica, sans-serif;
   text-align: center;
   width: 50%;
-  background-image: url('../assets/imgs/cartaz-procurado.avif');
-  background-size: cover;
+  background-color: #fff;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-  height: 150px;
-  padding: 150px 0;
+  height: 450px;
 }
 
  .cartaz-login{

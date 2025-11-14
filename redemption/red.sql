@@ -1,7 +1,9 @@
 CREATE DATABASE RED;
 USE RED;
 
-CREATE TABLE empresa (
+drop database RED;
+
+CREATE TABLE console (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	plataforma VARCHAR(50),
 	codigoPlataforma VARCHAR(50)
@@ -12,8 +14,8 @@ CREATE TABLE usuario (
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	fk_console INT,
+	FOREIGN KEY (fk_console) REFERENCES console(id)
 );
 
 CREATE TABLE aviso (
@@ -28,8 +30,8 @@ create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	fk_console INT,
+	FOREIGN KEY (fk_console) REFERENCES console(id)
 );
 
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
@@ -46,12 +48,12 @@ create table medida (
 	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
 );
 
-insert into empresa (plataforma, codigoPlataforma) values ('Playstation', 'play-ative');
-insert into empresa (plataforma, codigoPlataforma) values ('Xbox', 'xbox-ative');
-insert into empresa (plataforma, codigoPlataforma) values ('Pc', 'pc-ative');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 3);
+insert into console (plataforma, codigoPlataforma) values ('Playstation', 'play-ative');
+insert into console (plataforma, codigoPlataforma) values ('Xbox', 'xbox-ative');
+insert into console (plataforma, codigoPlataforma) values ('Pc', 'pc-ative');
+insert into aquario (descricao, fk_console) values ('Aquário de Estrela-do-mar', 1);
+insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 2);
+insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 3);
 
 delete from usuario
 where id >= 7;

@@ -1,19 +1,19 @@
 var database = require("../database/config");
 
 function buscarPorId(id) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE id = '${id}'`;
+  var instrucaoSql = `SELECT * FROM console WHERE id = '${id}'`;
 
   return database.executar(instrucaoSql);
 }
 
 function listar() {
-  var instrucaoSql = `SELECT id, plataforma, codigoPlataforma FROM empresa`;
+  var instrucaoSql = `SELECT id, plataforma, codigoPlataforma FROM console`;
 
   return database.executar(instrucaoSql);
 }
 
 function buscarPorCnpj(cnpj) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`;
+  var instrucaoSql = `SELECT * FROM console WHERE cnpj = '${cnpj}'`;
 
   return database.executar(instrucaoSql);
 }

@@ -72,9 +72,10 @@ body {
 }
 
 .titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
+  font-family: 'oeste2', Helvetica, sans-serif;
+  font-size: 65px;
+  font-weight: 800;
+  color: rgb(155, 105, 89);
 }
 
 .header h1 {

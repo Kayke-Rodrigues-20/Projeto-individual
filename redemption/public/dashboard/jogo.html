@@ -53,12 +53,17 @@
     var sorteado = Math.floor(Math.random() * (max - min) + min)
     var segundos = parseInt(num.innerHTML)
 
+    var tempo = 0
+ 
+
+
     console.log(sorteado)
 
     function delayInicio (){
         contador()
+        tiro()
         setInterval(()=>{
-            tiro()
+             
         }, 10) // sorteado
     }
 
@@ -84,7 +89,7 @@
         alvo.innerHTML = `<div id="alvo" style=" width: 45px; height: 45px; 
         background-color: blue; border-radius: 50px; 
         position: relative; display: flex; left: ${horizontal}px; top: ${vertical}px;" 
-        onclick="atirar()" ></div>`
+        onclick="atirar() " ></div>` 
     }
 
     function atirar(){
@@ -92,8 +97,58 @@
         teste.innerHTML = tempo
         num.innerHTML = `<div id="num">0</div><br>`
         testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
+        inserir()
         
     }
+
+    function inserir(){
+        
+        var fkUsuario = sessionStorage.ID_USUARIO
+
+        fetch("/jogo/inserir", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                segundosServer: tempo,
+                fkUserServer: fkUsuario
+            }),
+        }).then(function (resposta) {
+            console.log("ESTOU NO jogo()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    //sessionStorage.SEGUNDOS = json.tempo
+                    //sessionStorage.NOME_USUARIO = json.nome;
+                    //sessionStorage.ID_USUARIO = json.id;
+                    //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    /*setTimeout(function () {
+                        window.location = "./dashboard.html";
+                    }, 1000);*/
+
+                });
+
+            } else {
+
+                console.log(resposta);
+
+                /* resposta.text().then(texto => {
+                    console.error(texto);
+                   // finalizarAguardar(texto);
+                }); */
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+       return false;
+    }
+    
 
 
 </script>

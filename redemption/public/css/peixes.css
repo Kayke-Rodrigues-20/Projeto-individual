@@ -19,7 +19,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 :root {
@@ -32,19 +32,22 @@ body {
 
 .container {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  border-bottom: 2px solid #927676;
 }
 
 .header .container {
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
+  /*background: linear-gradient(to top, rgba(29, 28, 28, 0.822), red
+  );*/
+  background-color: #965825;
 }
 
 .header a {
@@ -52,14 +55,14 @@ body {
   font-family: 'oeste3', Helvetica, sans-serif;
   font-size: 35px;
   font-weight: 900;
-  color: rgb(253, 70, 14);
+  color: rgb(255, 64, 0);
 }
 
 .agora {
   font-family: 'oeste3', Helvetica, sans-serif;
   font-size: 35px;
   font-weight: 900;
-  color: rgb(253, 70, 14);
+  color: rgb(255, 64, 0);
 }
 
 .navbar {
@@ -68,14 +71,14 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color: #9e9484;
 }
 
 .titulo {
   font-family: 'oeste2', Helvetica, sans-serif;
   font-size: 65px;
   font-weight: 800;
-  color: rgb(155, 105, 89);
+  color: rgb(255, 64, 0);
 }
 
 .header h1 {
@@ -86,7 +89,7 @@ body {
 
 .banner {
   height: var(--tamanho-banner);
-  color: white;
+  color: rgb(0, 0, 0);
   /*background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');*/
   background-size: cover;
 }
@@ -143,9 +146,9 @@ body {
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
+  background-color: #965825;;
   height: 100px;
-  color: #fff;
+  color: #000000;
   display: flex;
   font-size: 15px;
 }
@@ -177,7 +180,7 @@ body {
   font-family: 'oeste1', Helvetica, sans-serif;
   text-align: center;
   width: 50%;
-  background-color: #fff;
+  background-color: #000000;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -255,7 +258,7 @@ body {
   border-radius: 5px;
   font-weight: 600;
   font-size: 18px;
-  color: #fff;
+  color: #000000;
   width: 120px;
   height: 30px;
   align-self: center;
@@ -325,7 +328,7 @@ input {
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: white;
+  color: rgb(0, 0, 0);
   background-color: #ED145B;
   width: 120px;
   align-self: center;
@@ -346,58 +349,14 @@ input {
 /* SIMULADOR */
 
 .simulador {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .simulador .container {
   flex-direction: column;
-  overflow: scroll; 
+  height: 100;
   height: var(--tamanho-simulador);
 }
 
 /* ALERTA */
 
-#alerta {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.mensagem-alarme {
-  background-color: white;
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-  margin: 10px;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.mensagem-alarme h3 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.mensagem-alarme .informacao {
-  width: 66%;
-}
-
-.alarme-sino {
-  width: 48px;
-  height: 48px;
-  animation-name: bell;
-  animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
-  background-size: cover;
-  animation-iteration-count: infinite;
-}
-
-@keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
-}

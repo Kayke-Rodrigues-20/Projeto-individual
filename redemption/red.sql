@@ -18,6 +18,17 @@ CREATE TABLE usuario (
 	FOREIGN KEY (fk_console) REFERENCES console(id)
 );
 
+select * from usuario;
+
+create table msTempo (
+id int primary key auto_increment,
+ms int,
+fkUsuario int,
+constraint fkUser
+foreign key (fkUsuario) references usuario(id)
+);
+select * from msTempo;
+
 CREATE TABLE aviso (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
@@ -25,6 +36,8 @@ CREATE TABLE aviso (
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+
+select * from usuario;
 
 create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
@@ -48,9 +61,9 @@ create table medida (
 	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
 );
 
-insert into console (plataforma, codigoPlataforma) values ('Playstation', 'play-ative');
-insert into console (plataforma, codigoPlataforma) values ('Xbox', 'xbox-ative');
-insert into console (plataforma, codigoPlataforma) values ('Pc', 'pc-ative');
+insert into console (plataforma, codigoPlataforma) values ('Playstation', 'playstation');
+insert into console (plataforma, codigoPlataforma) values ('Xbox', 'xbox');
+insert into console (plataforma, codigoPlataforma) values ('Pc', 'pc gamer');
 insert into aquario (descricao, fk_console) values ('Aquário de Estrela-do-mar', 1);
 insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 2);
 insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 3);

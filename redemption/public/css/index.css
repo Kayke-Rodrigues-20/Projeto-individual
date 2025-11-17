@@ -20,6 +20,8 @@ body {
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(255, 255, 255);
+  background-image: url('../assets/imgs/img-index.webp');
+  background-size: cover;
 }
 
 :root {
@@ -34,13 +36,14 @@ body {
   display: flex;
   width: 80%;
   margin: auto;
+  
 }
 
 .header {
   height: 132px;
   border-bottom: 2px solid #000000;
-  background: linear-gradient(to top, rgba(29, 28, 28, 0.822), red
-  );
+  background: rgba(255, 0, 0, 0.568);
+
 }
 
 
@@ -50,6 +53,7 @@ body {
   text-align: center;
   align-items: center;
   height: 100%;
+  
 }
 
 .header a {
@@ -149,9 +153,10 @@ body {
   height: 180px;
 }
 
-.social .container .boxes {
+.container .boxes {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   width: 100%;
   padding: 30px 0;
 }
@@ -166,10 +171,50 @@ body {
   align-items: center;
 }
 
+h2{
+  color: aliceblue;
+}
+
+.personagens{
+  height: 380px;
+  width: 100%;
+  background-color: rgba(240, 248, 255, 0.74);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.personagens .personagem{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+.grupo {
+  border-top: 2px solid #000000;
+  height: 380px;
+  width: 100%;
+  background-color: rgba(240, 248, 255, 0.74);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.grupo .gangue{
+   display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 /* FOOTER */
 
 .footer {
-  background-color: #eb0a0ac7;
+  background: rgba(255, 0, 0, 0.822);
   height: 100px;
   color: #fff;
   display: flex;
@@ -371,63 +416,4 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
-  color: white;
-}
-
-.simulador .container {
-  flex-direction: column;
-  overflow: scroll; 
-  height: var(--tamanho-simulador);
-}
-
-/* ALERTA */
-
-#alerta {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.mensagem-alarme {
-  background-color: white;
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-  margin: 10px;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.mensagem-alarme h3 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.mensagem-alarme .informacao {
-  width: 66%;
-}
-
-.alarme-sino {
-  width: 48px;
-  height: 48px;
-  animation-name: bell;
-  animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
-  background-size: cover;
-  animation-iteration-count: infinite;
-}
-
-@keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
 }

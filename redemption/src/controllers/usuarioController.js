@@ -33,7 +33,7 @@ function autenticar(req, res) {
                                 } else {
                                     res.status(204).json({ aquarios: [] });
                                 }
-                            })
+                            }) 
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {

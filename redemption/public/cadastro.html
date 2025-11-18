@@ -71,7 +71,7 @@
           <div class="campo">
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
-            <div id="errSenha" style="color: orange;">Acima de 6 caracteres</div>
+            <div id="errSenha" style="color: orange;">Acima de 5 caracteres</div>
           </div>
           <div class="campo">
             <span>Confirmação da Senha:</span>
@@ -104,22 +104,21 @@
 
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
+   
   let listaEmpresasCadastradas = [];
 
   function cadastrar() {
     // aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+ 
+    var nomeVar = nome_input.value.trim();
+    var emailVar = email_input.value.trim();
+    var senhaVar = senha_input.value.trim();
+    var confirmacaoSenhaVar = confirmacao_senha_input.value.trim();
+    var codigoVar = codigo_input.value.trim();
+    // var idEmpresaVincular
 
-    // Verificando se há algum campo em branco
+
     if (
       nomeVar == "" ||
       emailVar == "" ||
@@ -127,10 +126,7 @@
       confirmacaoSenhaVar == "" ||
       codigoVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      alert(`Preencha todos os campos!!`);
       finalizarAguardar();
       return false;
       cadastrar();
@@ -148,14 +144,14 @@
       return false;
        cadastrar();
     }
-    if (senhaVar.length < 6){
-      errSenha.innerHTML = `<div style="color:orange;">Deve conter pelo menos 6 caracter</div>`
+    if (senhaVar.length < 6 && senhaVar != senhaVar.toUpperCase()){
+      errSenha.innerHTML = `<div style="color:orange;">6 caracter, com maiúsculo e minúsculo</div>`
       finalizarAguardar();
       return false;
        cadastrar();
     }
     if (confirmacaoSenhaVar != senhaVar){
-      errConfirm.innerHTML = `<div style='color:orange;'>As senhas não coincidem</div>`
+      errConfirm.innerHTML = `<div style=":orange;">As senhas não coincidem</div>`
       finalizarAguardar();
       return false;
        cadastrar();
@@ -186,8 +182,6 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,

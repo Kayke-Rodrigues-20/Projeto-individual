@@ -69,7 +69,7 @@ insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado',
 insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 3);
 
 delete from usuario
-where id >= 7;
+where id >= 3;
 
 select * from usuario;
 select * from empresa;

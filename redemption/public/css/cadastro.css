@@ -234,6 +234,7 @@ body {
   border: 2px solid #ad5e1d;
   background-color: #0c0c0c;
   color: white;
+  height: 27px;
   text-align: center;
   border-radius: 10px;
   margin: 0;
@@ -319,11 +320,13 @@ body {
 }
 
 input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
+  border: 2px solid #ad5e1d;
+  background-color: #0c0c0c;
+  height: 27px;
+  color: white;
   text-align: center;
   border-radius: 10px;
+  margin: 0;
 }
 
 .btn {

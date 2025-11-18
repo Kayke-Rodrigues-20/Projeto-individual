@@ -46,43 +46,46 @@
     </div>
     <div class="container">
       <div class="card card-cadastro">
-        <h2>Bem-vindo à Valentine!</h2>
-        <div class="formulario">
+        
+          <h2>Bem-vindo à Valentine!</h2>
+          <div class="formulario">
           <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
           <div class="campo">
             <span>Código da plataforma de jogo</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
+            <input id="codigo_input" type="text" placeholder="Plataforma de jogo playstation, xbox , ou pc gamer" />
+            <div id="errNome" style="color: orange;">Console</div>
           </div>
           <div class="campo">
             <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
-            <div id="errNome"></div>
+            <div id="errNome" style="color: orange;">Nome</div>
           </div>
           <div class="campo">
             <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-            <div id="errEmail"></div>
+            <input id="email_input" type="text" placeholder="meuemail@gmail.com" />
+            <div id="errEmail" style="color: orange;">Formato @gmail.com</div>
           </div>
           <div class="campo">
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
-            <div id="errSenha"></div>
+            <div id="errSenha" style="color: orange;">Acima de 6 caracteres</div>
           </div>
           <div class="campo">
             <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
-            <div id="errConfirm"></div>
+            <div id="errConfirm" style="color: orange;">Confirme a senha</div>
           </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
+        
         <div id="div_aguardar" class="loading-div">
           <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
 
         <div id="div_erros_login"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -133,26 +136,26 @@
       cadastrar();
       
     } 
-    else if (nomeVar.length <= 1){
-      errNome.innerHTML = `<div style='color:red;'> Insira mais de 1 caracter </div>`
+    if (nomeVar.length <= 1){
+      errNome.innerHTML = `<div style='color:orange;'> Insira mais de 1 caracter </div>`
       finalizarAguardar();
       return false;
        cadastrar();
     }
-    else if (!emailVar.includes('@gmail.com')){
-      errEmail.innerHTML = `<div style='color:red;'> Email deve conter @gmail.com </div>`
+    if (!emailVar.includes('@gmail.com')){
+      errEmail.innerHTML = `<div style='color:orange;'> Email deve conter @gmail.com </div>`
       finalizarAguardar();
       return false;
        cadastrar();
     }
-    else if (senhaVar.length < 6){
-      errSenha.innerHTML = `<div style='color:red;'>Deve conter pelo menos 6 caracter</div>`
+    if (senhaVar.length < 6){
+      errSenha.innerHTML = `<div style="color:orange;">Deve conter pelo menos 6 caracter</div>`
       finalizarAguardar();
       return false;
        cadastrar();
     }
-    else if (confirmacaoSenhaVar != senhaVar){
-      errConfirm.innerHTML = `<div style='color:red;'>As senhas não coincidem</div>`
+    if (confirmacaoSenhaVar != senhaVar){
+      errConfirm.innerHTML = `<div style='color:orange;'>As senhas não coincidem</div>`
       finalizarAguardar();
       return false;
        cadastrar();

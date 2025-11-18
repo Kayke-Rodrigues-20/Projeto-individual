@@ -1,6 +1,6 @@
 var aquarioModel = require("../models/aquarioModel");
 
-function buscarAquariosPorEmpresa(req, res) {
+/*function buscarAquariosPorEmpresa(req, res) {
   var idUsuario = req.params.idUsuario;
 
   aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
@@ -14,7 +14,7 @@ function buscarAquariosPorEmpresa(req, res) {
     console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
-}
+}*/
 
 
 function cadastrar(req, res) {

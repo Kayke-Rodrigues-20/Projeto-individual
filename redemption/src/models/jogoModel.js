@@ -8,6 +8,15 @@ function inserir(tempo, fkUsuario){
         return database.executar(instrucaoSql);
 }
 
+function buscarUsuarioConsole(consoleId) {
+
+  var instrucaoSql = `SELECT * FROM usuario a WHERE fk_console = ${consoleId}`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    inserir
+    inserir,
+    buscarUsuarioConsole
 };

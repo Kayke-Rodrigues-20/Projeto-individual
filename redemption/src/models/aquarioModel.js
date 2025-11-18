@@ -1,12 +1,12 @@
 var database = require("../database/config");
 
-function buscarAquariosPorEmpresa(consoleId) {
+/*function buscarAquariosPorEmpresa(consoleId) {
 
   var instrucaoSql = `SELECT * FROM usuario a WHERE fk_console = ${consoleId}`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
-}
+}*/
 
 function cadastrar(empresaId, descricao) {
   
@@ -18,6 +18,5 @@ function cadastrar(empresaId, descricao) {
 
 
 module.exports = {
-  buscarAquariosPorEmpresa,
   cadastrar
 }

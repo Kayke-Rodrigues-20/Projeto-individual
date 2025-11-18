@@ -8,4 +8,12 @@ router.post("/inserir", function (req, res) {
     jogoController.inserir(req, res);
 })
 
+/*function buscarUsuarioConsole(consoleId) {
+
+  var instrucaoSql = `SELECT * FROM usuario a WHERE fk_console = ${consoleId}`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}*/
+
 module.exports = router;

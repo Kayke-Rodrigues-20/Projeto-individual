@@ -18,7 +18,7 @@ function inserir(req, res){
                         if (cadastrarTempo.length == 1) {
                             console.log(cadastrarTempo);
     
-                            jogoModel.buscarAquariosPorEmpresa(cadastrarTempo[0].consoleId)
+                            jogoModel.buscarUsuarioConsole(cadastrarTempo[0].consoleId)
                                 .then((resultadoAquarios) => {
                                     if (resultadoAquarios.length >= 0) {
                                         res.json({
@@ -48,6 +48,23 @@ function inserir(req, res){
         }
 }
 
+function buscarUsuarioConsole(req, res) {
+  var idUsuario = req.params.idUsuario;
+
+  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+    if (resultado.length > 0) {
+      res.status(200).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 module.exports = {
-    inserir
+    inserir,
+    buscarUsuarioConsole
 }

@@ -32,17 +32,21 @@ body {
 
 .container {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
 .header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+   height: 132px;
+  width: 100%;
+  border-bottom: 2px solid #000000;
+  background: rgba(255, 0, 0, 0.568);
 }
 
 .header .container {
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   align-items: center;
   height: 100%;
 }
@@ -52,7 +56,7 @@ body {
   font-family: 'oeste3', Helvetica, sans-serif;
   font-size: 35px;
   font-weight: 900;
-  color: rgb(253, 70, 14);
+  color: rgb(0, 0, 0);
 }
 
 .agora {
@@ -68,14 +72,14 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  color: #000000;
 }
 
 .titulo {
   font-family: 'oeste2', Helvetica, sans-serif;
   font-size: 65px;
   font-weight: 800;
-  color: rgb(155, 105, 89);
+  color: rgb(0, 0, 0);
 }
 
 .header h1 {
@@ -140,10 +144,8 @@ body {
   align-items: center;
 }
 
-/* FOOTER */
-
 .footer {
-  background-color: #32b9cd;
+  background: rgba(255, 0, 0, 0.822);
   height: 100px;
   color: #fff;
   display: flex;
@@ -161,16 +163,14 @@ body {
 
 /* LOGIN */
 
-.login {
-  height: var(--tamanho-login);
-  /* background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');*/
-  background-size: cover;
-}
+
 
 .login .container {
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-image: url('../assets/imgs/cadastro-bar.png');
+  background-size: cover;
 }
 
 .card {
@@ -184,6 +184,8 @@ body {
   justify-content: space-evenly;
   flex-direction: column;
   height: 450px;
+  background-image: url('../assets/imgs/madeira-cadastro.jpg');
+  background-size: cover;
 }
 
  .cartaz-login{
@@ -197,6 +199,7 @@ body {
   height: 150px;
   padding: 110px 0;
 }
+
 .botao{
    background-image: url('../assets/imgs/tabua5.jpg');
    background-size: cover;
@@ -216,6 +219,7 @@ body {
   width: 80%;
   justify-content: space-around;
   flex-direction: column;
+  
 }
 
 .formulario span {

@@ -8,6 +8,10 @@ router.post("/inserir", function (req, res) {
     jogoController.inserir(req, res);
 })
 
+router.get("/jogo/buscarJogos", function (req, res){
+  jogoController.buscarJogos(req, res)
+})
+
 /*function buscarUsuarioConsole(consoleId) {
 
   var instrucaoSql = `SELECT * FROM usuario a WHERE fk_console = ${consoleId}`;

@@ -144,8 +144,8 @@
       return false;
        cadastrar();
     }
-    if (senhaVar.length < 6 && senhaVar != senhaVar.toUpperCase()){
-      errSenha.innerHTML = `<div style="color:orange;">6 caracter, com maiúsculo e minúsculo</div>`
+    if (senhaVar.length < 6){
+      errSenha.innerHTML = `<div style="color:orange;">Pelo menos 5 caracter</div>`
       finalizarAguardar();
       return false;
        cadastrar();
@@ -192,10 +192,10 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          //cardErro.style.display = "block";
+          //mensagem_erro.innerHTML =
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
             window.location = "login.html";

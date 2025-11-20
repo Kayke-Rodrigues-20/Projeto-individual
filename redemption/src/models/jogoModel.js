@@ -16,7 +16,16 @@ function buscarUsuarioConsole(consoleId) {
   return database.executar(instrucaoSql);
 }
 
+function buscarJogos(idUser) {
+
+  var instrucaoSql = `SELECT ms FROM msTempo a JOIN usuario u WHERE a.fkUsuario = ${idUser}`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
     inserir,
-    buscarUsuarioConsole
+    buscarUsuarioConsole,
+    buscarJogos
 };

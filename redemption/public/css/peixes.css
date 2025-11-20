@@ -32,22 +32,17 @@ body {
 
 .container {
   display: flex;
-  width: 100%;
-  margin: auto;
-}
-
-.header {
-  height: var(--tamanho-header);
-  border-bottom: 2px solid #927676;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
 }
 
 .header .container {
-  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   align-items: center;
   height: 100%;
-  /*background: linear-gradient(to top, rgba(29, 28, 28, 0.822), red
-  );*/
-  background-color: #965825;
 }
 
 .header a {
@@ -55,14 +50,14 @@ body {
   font-family: 'oeste3', Helvetica, sans-serif;
   font-size: 35px;
   font-weight: 900;
-  color: rgb(255, 64, 0);
+  color: rgb(0, 0, 0);
 }
 
 .agora {
   font-family: 'oeste3', Helvetica, sans-serif;
   font-size: 35px;
   font-weight: 900;
-  color: rgb(255, 64, 0);
+  color: rgb(0, 0, 0);
 }
 
 .navbar {
@@ -71,84 +66,90 @@ body {
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #9e9484;
+  color: #000000;
 }
 
 .titulo {
   font-family: 'oeste2', Helvetica, sans-serif;
   font-size: 65px;
   font-weight: 800;
-  color: rgb(255, 64, 0);
+  color: rgb(0, 0, 0);
 }
 
 .header h1 {
   margin: 0;
 }
 
-/* BANNER */
-
-.banner {
-  height: var(--tamanho-banner);
-  color: rgb(0, 0, 0);
-  /*background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');*/
-  background-size: cover;
+h2{
+  text-align: center;
+  font-size: 26px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.banner .container {
+/* BANNER */
+
+.card {
   justify-content: center;
   align-items: center;
   height: 100%;
 }
 
-.banner .container p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 36px;
-}
-
-.banner .container span {
-  font-weight: 800;
-}
 
 /* MISSÃO VISÃO VALORES */
 
-.social {
-  background-color: #e5e5e5;
-  display: flex;
-}
-
-.social .container {
-  justify-content: center;
-}
-
-.box img {
-  width: 170px;
-}
-
-.social .container .boxes {
-  display: flex;
-  justify-content: space-between;
+.header {
+   height: 132px;
   width: 100%;
-  padding: 30px 0;
+  border-bottom: 2px solid #000000;
+  background: rgba(255, 0, 0, 0.568);
 }
 
-.social p {
-  text-align: center;
-}
-
-.box {
+.peixe{
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 10px;
+  width: 90%;
+  height: 450px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: -3px 3px 5px rgb(32, 32, 32);
+  
+}
+
+.ft1{
+
+}
+
+.ft2{
+
+}
+
+.art{
+  display: flex;
+  padding: 5px;
+  width: 1000px;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.img-ods{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 /* FOOTER */
 
 .footer {
-  background-color: #965825;;
+  background: rgba(255, 0, 0, 0.822);
   height: 100px;
-  color: #000000;
+  width: 100%;
+  color: #fff;
   display: flex;
   font-size: 15px;
 }
@@ -162,201 +163,12 @@ body {
   font-size: 12px;
 }
 
-/* LOGIN */
-
-.login {
-  height: var(--tamanho-login);
-  /* background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');*/
-  background-size: cover;
-}
-
-.login .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
+/*  */
 
 .card {
-  font-family: 'oeste1', Helvetica, sans-serif;
-  text-align: center;
-  width: 50%;
-  background-color: #000000;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  height: 450px;
-}
-
- .cartaz-login{
-  margin-bottom: 10px;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(68, 36, 1);
-  flex-direction: column;
-  height: 150px;
-  padding: 110px 0;
-}
-
-.cartaz-login button{
-   background-image: url('../assets/imgs/tabua5.jpg');
-   background-size: cover;
-   width: 100%;
-   width: 100%;
-   padding: 3px;
-}
-
-.card h2 {
-  margin: 0;
-  font-size: 30px;
-}
-
-.formulario {
-  display: flex;
-  height: 90%;
-  width: 80%;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.formulario span {
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.formulario input {
-  border: 2px solid #ad5e1d;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
-}
-
-.formulario select {
-  border: 2px solid #32b9cd;
-  background-color: white;
-  color: gray;
-  height: 36px;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
-}
-
-.campo {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 5px 0;
-}
-
-.botao {
-  font-family: 'oeste1', Helvetica, sans-serif;
-  cursor: pointer;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  color: #000000;
-  width: 120px;
-  height: 30px;
-  align-self: center;
-  margin-top: 20px;
-}
-
-.loading-div {
-  width: 50px;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-#div_erros_login {
-  display: none
-}
-
-/* FORMULARIO */
-
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #ED145B 3px solid;
-  padding: 10px;
-  margin-right: 10%;
-}
-
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.btn {
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: rgb(0, 0, 0);
-  background-color: #ED145B;
-  width: 120px;
-  align-self: center;
-  margin-top: 5px;
-}
-
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
   color: rgb(0, 0, 0);
 }
 
-.simulador .container {
-  flex-direction: column;
-  height: 100;
-  height: var(--tamanho-simulador);
-}
 
-/* ALERTA */
+
 

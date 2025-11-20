@@ -22,10 +22,10 @@ function inserir(req, res){
                                 .then((resultadoAquarios) => {
                                     if (resultadoAquarios.length >= 0) {
                                         res.json({
-                                            id: cadastrarTempo[0].id
-                                            //email: cadastrarTempo[0].email,
-                                            //nome: cadastrarTempo[0].nome,
-                                            //senha: cadastrarTempo[0].senha,
+                                            id: cadastrarTempo[0].id,
+                                            email: cadastrarTempo[0].email,
+                                            nome: cadastrarTempo[0].nome,
+                                            senha: cadastrarTempo[0].senha,
                                             //aquarios: resultadoAquarios
                                         });
                                     } else {
@@ -48,7 +48,7 @@ function inserir(req, res){
         }
 }
 
-function buscarUsuarioConsole(req, res) {
+/*function buscarUsuarioConsole(req, res) {
   var idUsuario = req.params.idUsuario;
 
   aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
@@ -62,9 +62,25 @@ function buscarUsuarioConsole(req, res) {
     console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
+}*/
+
+function buscarJogos(req, res) {
+    var idUser = req.params.ID_USUARIO;
+
+    jogoModel.buscarJogos(idUser).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+    console.log(erro);
+    console.log("Erro ao buscar disparos: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
 }
 
 module.exports = {
     inserir,
-    buscarUsuarioConsole
+    buscarJogos
 }

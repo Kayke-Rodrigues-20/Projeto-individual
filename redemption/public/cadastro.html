@@ -55,7 +55,12 @@
                      -->
           <div class="campo">
             <span>Código da plataforma de jogo</span>
-            <input id="codigo_input" type="text" placeholder="Plataforma de jogo playstation, xbox , ou pc gamer" />
+            <!-- <input id="codigo_input" type="text" placeholder="Plataforma de jogo playstation, xbox , ou pc gamer" /> -->
+            <select id="codigo_input">
+              <option value="1">Playstation</option>
+              <option value="2">Xbox</option>
+              <option value="3">Pc Gamer</option>
+            </select>
             <div id="errNome" style="color: orange;">Console</div>
           </div>
           <div class="campo">
@@ -115,7 +120,7 @@
     var emailVar = email_input.value.trim();
     var senhaVar = senha_input.value.trim();
     var confirmacaoSenhaVar = confirmacao_senha_input.value.trim();
-    var codigoVar = codigo_input.value.trim();
+    var codigoVar = Number(codigo_input.value.trim());
     // var idEmpresaVincular
 
 
@@ -185,6 +190,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
+        codigoServer: codigoVar,
         idEmpresaVincularServer: idEmpresaVincular
       }),
     })

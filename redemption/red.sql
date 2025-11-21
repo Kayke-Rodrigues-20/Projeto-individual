@@ -6,7 +6,7 @@ drop database RED;
 CREATE TABLE console (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	plataforma VARCHAR(50),
-	codigoPlataforma VARCHAR(50)
+	codigoPlataforma INT
 );
 
 CREATE TABLE usuario (
@@ -61,15 +61,17 @@ create table medida (
 	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
 );
 
-insert into console (plataforma, codigoPlataforma) values ('Playstation', 'playstation');
-insert into console (plataforma, codigoPlataforma) values ('Xbox', 'xbox');
-insert into console (plataforma, codigoPlataforma) values ('Pc', 'pc gamer');
+insert into console (plataforma, codigoPlataforma) values ('Playstation', 1);
+insert into console (plataforma, codigoPlataforma) values ('Xbox', 2);
+insert into console (plataforma, codigoPlataforma) values ('Pc', 3);
 insert into aquario (descricao, fk_console) values ('Aquário de Estrela-do-mar', 1);
 insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 2);
 insert into aquario (descricao, fk_console) values ('Aquário de Peixe-dourado', 3);
 
 delete from usuario
 where id >= 3;
+drop table aviso;
+drop table aquario;
 
 select * from usuario;
 select * from empresa;

@@ -10,26 +10,34 @@
 
     <div class="container_tempo">
         <div class="tempo">
-            <span>millisegundos</span><br>
-            <div id="num">0</div><br>
-            <div id="recomecar"></div><br>
+            <span>millisegundos</span>
+            <div id="num" class="num">0</div><br>
+            <div class="recomecar"></div><br>
         </div>
     </div>
     
 
     <div class="container">
         <div id= 'testeId' class="container_alvo">
-            <div id="alvo" onclick="" style=" width: none; height: none; background-color: none; 
+            <div id="alvo"  onclick="" style=" width: none; height: none; background-color: none; 
                 border-radius: none; position: relative; left: none; top: none;">  
             </div><br>
         </div>
     </div><br>
-
-    <button onclick="delayInicio()">Iniciar</button><br><br>
-    <a href="dashboard.html"><button>Clique aqui</button></a>
-
+    
+    <div class="buttons">
+        <button onclick="delayInicio()" >Iniciar</button><br><br>
+        <a href="dashboard.html"><button>Clique aqui</button></a>
+    </div>
 
     <div id="teste"></div><br>
+
+    <div class="footer">
+        <div class="container">
+            <h4></h4>
+            <span class="version"></span>
+        </div>
+    </div>
 
 </body>
 </html>
@@ -89,15 +97,15 @@
     }
 
     function tiro(){
-        alvo.innerHTML = `<div id="alvo" style=" width: 45px; height: 45px; 
-        background-color: blue; border-radius: 50px; 
+        alvo.innerHTML = `<div id="alvo" class='alvo-v' style=" width: 45px; height: 45px; 
+        background-color: white; border-radius: 50px; 
         position: relative; display: flex; left: ${horizontal}px; top: ${vertical}px;" 
         onclick="atirar() " ></div>` 
     }
 
     function atirar(){
         tempo = segundos
-        teste.innerHTML = tempo
+        teste.innerHTML = tempo/100
         num.innerHTML = `<div id="num">0</div><br>`
         testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
         inserir()

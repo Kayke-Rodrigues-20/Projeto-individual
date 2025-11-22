@@ -48,28 +48,12 @@ function inserir(req, res){
         }
 }
 
-/*function buscarUsuarioConsole(req, res) {
-  var idUsuario = req.params.idUsuario;
-
-  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
-    if (resultado.length > 0) {
-      res.status(200).json(resultado);
-    } else {
-      res.status(204).json([]);
-    }
-  }).catch(function (erro) {
-    console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
-    res.status(500).json(erro.sqlMessage);
-  });
-}*/
-
 function buscarJogos(req, res) {
-    var idUser = req.params.ID_USUARIO;
+    var idUsuario = req.params.idUsuario;
 
-    jogoModel.buscarJogos(idUser).then((resultado) => {
+    jogoModel.buscarJogos(idUsuario).then((resultado) => {
         if (resultado.length > 0) {
-            res.status(200).json(resultado);
+            res.status(200).json(resultado[0]);
         } else {
             res.status(204).json([]);
         }
@@ -80,7 +64,44 @@ function buscarJogos(req, res) {
   });
 }
 
+function quantidadeDisparos(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    jogoModel.quantidadeDisparos(idUsuario).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado[0]);
+        } else {
+            res.status(204).json([]);
+        }
+    }).catch(function (erro) {
+    console.log(erro);
+    console.log("Erro ao buscar disparos: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function ultimosDisparos(req, res) {
+
+    const ultimos = 10
+
+    var idUsuario = req.params.idUsuario;
+
+    jogoModel.ultimosDisparos(idUsuario, ultimos).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("nothings new");
+        }
+    }).catch(function (erro) {
+    console.log(erro);
+    console.log("Erro ao buscar disparos: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 module.exports = {
     inserir,
-    buscarJogos
+    buscarJogos,
+    quantidadeDisparos,
+    ultimosDisparos
 }

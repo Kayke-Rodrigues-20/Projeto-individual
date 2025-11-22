@@ -8,8 +8,16 @@ router.post("/inserir", function (req, res) {
     jogoController.inserir(req, res);
 })
 
-router.get("/jogo/buscarJogos", function (req, res){
+router.get("/buscarJogos/:idUsuario", function (req, res){
   jogoController.buscarJogos(req, res)
+})
+
+router.get("/quantidadeDisparos/:idUsuario", function (req, res){
+  jogoController.quantidadeDisparos(req, res)
+})
+
+router.get("/ultimosDisparos/:idUsuario", function (req, res){
+  jogoController.ultimosDisparos(req, res)
 })
 
 /*function buscarUsuarioConsole(consoleId) {

@@ -99,9 +99,28 @@ function ultimosDisparos(req, res) {
   });
 }
 
+
+function buscarDisparos(req, res) {
+
+    var idUsuario = req.params.idUsuario;
+
+    jogoModel.buscarDisparos(idUsuario).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("nothings new");
+        }
+    }).catch(function (erro) {
+    console.log(erro);
+    console.log("Erro ao buscar disparos: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
 module.exports = {
     inserir,
     buscarJogos,
     quantidadeDisparos,
-    ultimosDisparos
+    ultimosDisparos,
+    buscarDisparos
 }

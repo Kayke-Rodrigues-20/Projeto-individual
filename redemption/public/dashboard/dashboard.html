@@ -38,11 +38,11 @@
 
 <script>
 
-     nome.innerHTML = sessionStorage.NOME_USUARIO;
+    nome.innerHTML = sessionStorage.NOME_USUARIO;
+    idUsuario = sessionStorage.ID_USUARIO;
 
-    function obterDadosGrafico(idUsuario){
-        idUsuario = sessionStorage.ID_USUARIO;
-
+    function obterDadosGrafico(){
+       
         fetch(`/jogo/buscarJogos/${idUsuario}`, { cache: 'no-store' }).then(function (resposta) {
 
             if (resposta.ok) {
@@ -50,13 +50,13 @@
 
                 resposta.json().then(json => {
 
-                    console.log(json);
+                    console.log(json, `aqui ${idUsuario}`);
                     console.log(json.melhorDisparo);
 
                     melhorDisparo = json.melhorDisparo;
                     document.getElementById('dado').innerText = melhorDisparo/100
 
-                    plotarGrafico(resposta, idUsuario);
+                    buscarDisparos()
 
                 })
             } else {
@@ -67,9 +67,6 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     
-
-
-
     fetch(`/jogo/quantidadeDisparos/${idUsuario}`, { cache: 'no-store' }).then(function (resposta) {
 
             if (resposta.ok) {
@@ -99,7 +96,6 @@
                         document.getElementById('dado3').innerText = `Lenda`
                     }
 
-
                 })
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -111,9 +107,44 @@
     
 }
 
-function plotarGrafico(resposta, idUsuario) {
 
-        console.log('iniciando plotagem do gráfico...');
+    function buscarDisparos(){
+
+        var listaDisparos = []
+        
+        fetch(`/jogo/buscarDisparos/${idUsuario}`, { cache: "no-cache" }).then(function (resposta){
+            if (resposta.ok) {
+             console.log(resposta)
+
+                resposta.json().then(json => {
+
+                    console.log(json);
+                    console.log(json.quantDisparo + 'aeeee');
+
+                   for(var i = 0; i < 10; i++){ 
+                    listaDisparos.push(json[i].Disparo);
+                   }
+
+                    plotarGrafico(listaDisparos)
+                })
+            } else {
+                console.error('veio nada');
+            }
+
+            
+
+       // setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+            
+        })
+            .catch(function (error) {
+                console.error(`quase: ${error.message}`);
+            });
+
+    }
+
+
+function plotarGrafico(listaDisparos){
+    console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
         let labels = [];
@@ -132,13 +163,13 @@ function plotarGrafico(resposta, idUsuario) {
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
+        console.log()
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.ms);
-            dados.datasets[0].data.push(registro.Disparo);
+        for (i = 0; i < listaDisparos.length; i++) {
+            // var registro = listaDisparos[i];
+            labels.push(`${[i + 1]}° Disparo`);
+            dados.datasets[0].data.push(listaDisparos[i]);
             //dados.datasets[1].data.push(registro.temperatura);
         }
    
@@ -152,7 +183,7 @@ function plotarGrafico(resposta, idUsuario) {
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 
@@ -161,9 +192,17 @@ function plotarGrafico(resposta, idUsuario) {
             document.getElementById(`myChartCanvas`),
             config
         );
+}
 
-       // setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-    }
+
+
+
+
+
+
+
+
+
 
 /*   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 

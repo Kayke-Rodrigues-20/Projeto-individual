@@ -20,6 +20,10 @@ router.get("/ultimosDisparos/:idUsuario", function (req, res){
   jogoController.ultimosDisparos(req, res)
 })
 
+router.get("/buscarDisparos/:idUsuario", function (req, res){
+  jogoController.buscarDisparos(req, res)
+})
+
 /*function buscarUsuarioConsole(consoleId) {
 
   var instrucaoSql = `SELECT * FROM usuario a WHERE fk_console = ${consoleId}`;

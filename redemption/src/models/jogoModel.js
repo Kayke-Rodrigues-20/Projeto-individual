@@ -48,11 +48,20 @@ function buscarDisparos(idUsuario){
     return database.executar(instrucaoSql);
 }
 
+function atualizarGrafico(idUsuario){
+    var instrucaoSql = `SELECT ms as Disparo FROM msTempo a JOIN usuario b on a.fkUsuario = ${idUsuario}
+                    ORDER BY b.id DESC LIMIT 10`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     inserir,
     buscarUsuarioConsole,
     buscarJogos,
     quantidadeDisparos,
     ultimosDisparos,
-    buscarDisparos
+    buscarDisparos,
+    atualizarGrafico
 };

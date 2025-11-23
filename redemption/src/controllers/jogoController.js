@@ -108,7 +108,7 @@ function buscarDisparos(req, res) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
-            res.status(204).send("nothings new");
+            res.status(204).send("nada");
         }
     }).catch(function (erro) {
     console.log(erro);
@@ -117,10 +117,23 @@ function buscarDisparos(req, res) {
   });
 }
 
+function atualizarGrafico(){
+    var idUsuario = req.params.idUsuario;
+
+    jogoModel.atualizarGrafico(idUsuario).then((resultado) => {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("nada");
+        }
+    })
+}
+
 module.exports = {
     inserir,
     buscarJogos,
     quantidadeDisparos,
     ultimosDisparos,
-    buscarDisparos
+    buscarDisparos,
+    atualizarGrafico
 }

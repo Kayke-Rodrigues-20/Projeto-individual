@@ -24,6 +24,10 @@ router.get("/buscarDisparos/:idUsuario", function (req, res){
   jogoController.buscarDisparos(req, res)
 })
 
+router.get("/atualizarGrafico/:idUsuario", function (req, res){
+  jogoController.atualizarGrafico(req, res)
+})
+
 /*function buscarUsuarioConsole(consoleId) {
 
   var instrucaoSql = `SELECT * FROM usuario a WHERE fk_console = ${consoleId}`;

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/dashboards.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body >
 
     <div id="nome"></div>
         <button onclick="obterDadosGrafico()">teste</button>
@@ -40,6 +40,7 @@
 
     nome.innerHTML = sessionStorage.NOME_USUARIO;
     idUsuario = sessionStorage.ID_USUARIO;
+    window.onload = buscarDisparos()
 
     function obterDadosGrafico(){
        
@@ -126,14 +127,13 @@
                    }
 
                     plotarGrafico(listaDisparos)
+                    
+
                 })
             } else {
                 console.error('veio nada');
             }
 
-            
-
-        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
             
         })
             .catch(function (error) {
@@ -192,6 +192,8 @@ function plotarGrafico(listaDisparos){
             document.getElementById(`myChartCanvas`),
             config
         );
+
+        // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
 }
 
    function atualizarGrafico(dados, myChart) {
@@ -200,7 +202,7 @@ function plotarGrafico(listaDisparos){
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    obterdados(idUsuario);
+                    // obterDadosGrafico(idUsuario);
                     // alertar(novoRegistro, idAquario);
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
@@ -213,7 +215,7 @@ function plotarGrafico(listaDisparos){
                     if (novoRegistro[0].listaDisparos == dados.labels[dados.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")
                         console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
                         console.log("Horário do novo dado capturado:")
                         console.log(novoRegistro[0].listaDisparos)
                         console.log("Horário do último dado capturado:")

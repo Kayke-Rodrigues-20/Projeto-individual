@@ -18,20 +18,6 @@ function inserir(req, res){
                         if (cadastrarTempo.length == 1) {
                             console.log(cadastrarTempo);
     
-                            jogoModel.buscarUsuarioConsole(cadastrarTempo[0].consoleId)
-                                .then((resultadoAquarios) => {
-                                    if (resultadoAquarios.length >= 0) {
-                                        res.json({
-                                            id: cadastrarTempo[0].id,
-                                            email: cadastrarTempo[0].email,
-                                            nome: cadastrarTempo[0].nome,
-                                            senha: cadastrarTempo[0].senha,
-                                            //aquarios: resultadoAquarios
-                                        });
-                                    } else {
-                                        res.status(204).json({ aquarios: [] });
-                                    }
-                                })
                         } else if (cadastrarTempo.length == 0) {
                             res.status(403).send("Tempo inválido");
                         } else {
@@ -117,7 +103,7 @@ function buscarDisparos(req, res) {
   });
 }
 
-function atualizarGrafico(){
+function atualizarGrafico(req, res){
     var idUsuario = req.params.idUsuario;
 
     jogoModel.atualizarGrafico(idUsuario).then((resultado) => {

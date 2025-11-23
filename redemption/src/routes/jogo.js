@@ -4,7 +4,7 @@ var router = express.Router();
 var jogoController = require("../controllers/jogoController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/inserir", function (req, res) {
+router.post("/inserir/", function (req, res) {
     jogoController.inserir(req, res);
 })
 

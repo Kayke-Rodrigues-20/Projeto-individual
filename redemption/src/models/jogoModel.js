@@ -42,7 +42,7 @@ function ultimosDisparos(idUsuario, ultimos) {
 
 function buscarDisparos(idUsuario){
   var instrucaoSql = `SELECT ms as Disparo FROM msTempo a JOIN usuario b on a.fkUsuario = ${idUsuario}
-                    ORDER BY b.id DESC LIMIT 10`;
+                    ORDER BY b.id`;
 
     console.log("busca - Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -50,7 +50,7 @@ function buscarDisparos(idUsuario){
 
 function atualizarGrafico(idUsuario){
     var instrucaoSql = `SELECT ms as Disparo FROM msTempo a JOIN usuario b on a.fkUsuario = ${idUsuario}
-                    ORDER BY b.id LIMIT 10`;
+                    ORDER BY b.id`;
 
     console.log("up - Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

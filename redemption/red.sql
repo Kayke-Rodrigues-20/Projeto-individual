@@ -1,5 +1,6 @@
 CREATE DATABASE RED;
 USE RED;
+drop database RED;
 
 CREATE TABLE console (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,9 +34,6 @@ select * from usuario;
 insert into console (plataforma, codigoPlataforma) values ('Playstation', 1);
 insert into console (plataforma, codigoPlataforma) values ('Xbox', 2);
 insert into console (plataforma, codigoPlataforma) values ('Pc', 3);
-
-delete from usuario
-where id >= 3;
 
 select * from usuario;
 

@@ -64,6 +64,8 @@
     var segundos = parseInt(num.innerHTML)
 
     var tempo = 0
+
+    var disp = 1
  
     console.log(sorteado)
 
@@ -107,8 +109,14 @@
         num.innerHTML = `<div id="num">0</div><br>`
         testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
 
-        
+      if( disp == 1){
+        disp --
         inserir()
+      }
+      else {
+
+      }
+        
         
     }
 

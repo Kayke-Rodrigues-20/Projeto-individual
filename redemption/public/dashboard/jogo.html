@@ -12,7 +12,7 @@
         <div class="tempo">
             <span>millisegundos</span>
             <div id="num" class="num">0</div><br>
-            <div class="recomecar"></div><br>
+            <div class=""></div><br>
         </div>
     </div>
     
@@ -78,7 +78,7 @@
     function contador(){
         setInterval(() => {
               cronometro()
-        }, 10)
+        }, 10) //1
     }
 
     function cronometro(){
@@ -95,7 +95,7 @@
     }
 
     function tiro(){
-        alvo.innerHTML = `<div id="alvo" class='alvo-v' style=" width: 45px; height: 45px; 
+        alvo.innerHTML = `<div style=" width: 45px; height: 45px; 
         background-color: white; border-radius: 50px; 
         position: relative; display: flex; left: ${horizontal}px; top: ${vertical}px;" 
         onclick="atirar() " ></div>` 
@@ -106,6 +106,8 @@
         teste.innerHTML = tempo/100
         num.innerHTML = `<div id="num">0</div><br>`
         testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
+
+        
         inserir()
         
     }

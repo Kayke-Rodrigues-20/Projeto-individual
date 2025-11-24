@@ -9,29 +9,36 @@
 </head>
 <body >
 
-    <div id="nome"></div>
-        <button onclick="obterDadosGrafico()">teste</button>
-    
-    <div class="container">
-
-        <div class="card">
-            <p class="">Melhor disparo</p>
-            <div id="dado" class="dado">aqui</div><br>
+        <div id="nome"></div>
+        <div class="botoes">
+            <button class="btnDados" onclick="obterDadosGrafico()">Atualizar dados</button>
+            <button><a href="jogo.html">jogar game</a></button>
         </div>
 
-        <div class="card2">
-            <p class="">Disparos</p>
-            <div id="dado2" class="dado">aqui</div><br>
+    <div class="container-dash">
+        <div class="container">
+
+            <div class="card">
+                <p class="">Melhor disparo</p>
+                <div id="dado" class="dado">aqui</div><br>
+            </div>
+
+            <div class="card2">
+                <p class="">Disparos</p>
+                <div id="dado2" class="dado">aqui</div><br>
+            </div>
+
+            <div class="card3">
+                <p class="">Classe</p>
+                <div id="dado3" class="dado">Iniciante</div><br>
+            </div>
+
+        </div><br>
+
+        <div class="grafico">
+            <canvas id="myChartCanvas"></canvas>
         </div>
-
-        <div class="card3">
-            <p class="">Classe</p>
-            <div id="dado3" class="dado">Iniciante</div><br>
-        </div>
-
-    </div><br>
-
-    <canvas id="myChartCanvas"></canvas>
+    </div>
 
 </body>
 </html>
@@ -153,11 +160,12 @@ function plotarGrafico(listaDisparos){
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Disparo',
+                label: '10 últimos disparos',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                tension: 0.1,
+                backgroundColor: 'rgba(255, 0, 0, 0.568)'
             }]
         };
 
@@ -193,7 +201,7 @@ function plotarGrafico(listaDisparos){
             config
         );
 
-        // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
 }
 
    function atualizarGrafico(dados, myChart) {

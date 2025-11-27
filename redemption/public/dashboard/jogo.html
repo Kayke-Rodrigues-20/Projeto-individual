@@ -19,15 +19,15 @@
 
     <div class="container">
         <div id= 'testeId' class="container_alvo">
-            <div id="alvo"  onclick="" style=" width: none; height: none; background-color: none; 
+            <div id="alvo" style=" width: none; height: none; background-color: none; 
                 border-radius: none; position: relative; left: none; top: none;">  
             </div><br>
         </div>
     </div><br>
     
     <div class="buttons">
-        <button onclick="delayInicio()" >Iniciar</button><br><br>
-        <a href="dashboard.html"><button>Clique aqui</button></a>
+        <button onclick="delayInicio()" >Iniciar jogo</button><br><br>
+        <a href="dashboard.html"><button>Pontuação</button></a>
     </div>
 
     <div id="teste"></div><br>
@@ -65,10 +65,6 @@
 
     var tempo = 0
 
-    var disp = 1
- 
-    console.log(sorteado)
-
     function delayInicio (){
         contador()
         tiro()
@@ -91,7 +87,7 @@
         }
         else{
             num.innerHTML = `Muito lerdo`
-            testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
+            testeId.innerHTML = `<div id="alvo" style="display: none;"></div>`
         }
         
     }
@@ -108,16 +104,10 @@
         tempo = segundos
         teste.innerHTML = tempo/100
         num.innerHTML = `<div id="num">0</div><br>`
-        testeId.innerHTML = `<div id="alvo" style="display: none;></div>`
+        testeId.innerHTML = `<div id="alvo" style="display: none;"></div>`
 
-      if( disp == 1){
-        disp --
         inserir()
-        
-      }
-      else {
-
-      }
+      
         
         
     }
@@ -126,7 +116,7 @@
         
         var fkUsuario = sessionStorage.ID_USUARIO
 
-        fetch("/jogo/inserir/", {
+        fetch("/jogo/inserir", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -141,14 +131,14 @@
             if (resposta.ok) {
                 console.log(resposta);
 
-                resposta.json().then(json => {
+                // resposta.json().then(json => {
                     
 
-                });
+                // });
 
             } else {
 
-                console.log(resposta);
+                console.log(resposta + ' jogo err');
 
                 /* resposta.text().then(texto => {
                     console.error(texto);
